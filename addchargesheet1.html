@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Case Registration</title>
+<link rel="stylesheet" href="formstyle.css">
+<a href="CITIZEN.html" button class="button">HOME</a>
+<h1>Case Registration</h1>
+</head>
+<style>
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<body>
+<table align="center">
+<form method='post' action="hydpro/SubmitCaseRegistrationByCitizen" name="station">
+<tr> 
+<th><label for="country">FIR:</label>
+<select name="firid" id="select">
+<c:choose>
+<c:when test="${requestScope.firid ne null}">
+<option value="${requestScope.firid}">
+${requestScope.firid}
+</option>
+</c:when>
+<c:otherwise>
+<option value="">
+--SELECT--
+</option>
+<c:if test="${not empty firinfo}">
+<c:forEach var="station" items="${firinfo}">
+<option value="${station.firid}">
+${station.firid}
+</option>
+</c:forEach>
+</c:if>
+</c:otherwise>
+</c:choose>
+</select>
+</th>
+</tr>   
+<tr>
+<th> 
+Date:<input type="text" id="fname" name="firstname">
+</tr> 
+<tr>  
+<th> 
+Description:<input type="text" id="lname" name="lastname">
+</th>
+</tr> 
+<tr>  
+<th> Witness :<input type="text" id="lname" name="lastname"></th>
+</tr> 
+<th><input type="submit" value="Add"></th>
+ </tr>
+</tr>
+<th><input type="submit" value="Reset"></th>
+ </tr>
+</form>
+</table>
+</body>
+</html>

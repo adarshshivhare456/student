@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Case Registration</title>
+<link rel="stylesheet" href="formstyle.css">
+<a href="CITIZEN.html" button class="button">HOME</a>
+<h1>Add City</h1>
+</head>
+<style>
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<body>
+<table align="center">
+<form method='post' action="hydpro/AddCityAction" name="station">
+<tr> 
+<th><label for="districtname">District :</label></th>
+<tr>
+<th><select name="districtname" id="select" >
+							<c:choose>
+								<c:when test="${requestScope.districtname ne null}">
+									<option value="${requestScope.districtname}">
+										${requestScope.districtname}
+									</option>
+								</c:when>
+								<c:otherwise>
+									<option value="">
+										--SELECT--
+									</option>
+								</c:otherwise>
+							</c:choose>
+
+
+
+							<c:if test="${not empty distinfo}">
+								<c:forEach var="State" items="${distinfo}">
+									<option value="${State.districtname}">
+										${State.districtname}
+									</option>
+								</c:forEach>
+							</c:if>
+
+
+
+						</select>
+						<input type="hidden" value="${requestScope.districtname}"
+							name="dtname">
+						
+
+</th>
+</tr>
+</tr>   
+<tr>
+<th> 
+CityName :<input type="text" id="fname" name="cityname">
+</th>
+</tr> 
+<th><input type="submit" value="Add"></th>
+ </tr>
+</tr>
+<th><input type="submit" value="Reset"></th>
+ </tr>
+</form>
+</table>
+</body>
+</html>
